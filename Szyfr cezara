@@ -1,0 +1,63 @@
+#include <iostream>
+using namespace std;
+
+void  F(char tab[], int k)
+{
+	int dl;
+	dl = strlen(tab);
+	if (!(k >= -26 and k <= 26))
+	{
+		return;
+	}
+	int a;
+	int b;
+	if (k >= 0)
+	{
+		for (int a = 0; a < dl; a++)
+		{
+			if (tab[a] + k <= 'b')
+			{
+				tab[a] += k;
+			}
+			else
+			{
+				tab[a] = tab[a] + k - 26;
+			}
+
+		}
+
+
+	}
+	else
+	{
+		for (int a = 0; a < dl; a++)
+		{
+			if (tab[a] + k >= 'a')
+			{
+				tab[a] += k;
+			}
+			else
+			{
+				tab[a] = tab[a] + k + 26;
+			}
+
+		}
+	}
+}
+
+int main()
+{
+	int klucz;
+	char tab[200];
+	int a;
+	cout << "Wpisz wyraz ktory ma zostac zaszyfrowany: \n ";
+	cin >> tab;
+	cout << "Wpisz liczbe szyfrujaca [-26..26]: \n ";
+	cin >> klucz;
+	F(tab, klucz);
+	cout << "Zaszyfrowane slowo: " << tab << "\n";
+	F(tab, -klucz);
+	cout << "Odszyfrowany wyraz: " << tab << "\n";
+
+
+}
